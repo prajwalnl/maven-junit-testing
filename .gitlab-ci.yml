@@ -1,0 +1,12 @@
+stages:
+  - build
+
+build_job:
+  stage: build
+  image: maven:3.3-jdk-8
+  script:
+    #- mvn test
+    - mvn verify
+  artifacts:
+    paths:
+      - target/site/jacoco/index.html
