@@ -1,0 +1,21 @@
+name: maven-unit-test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Maven unit test
+      uses: actions/setup-dotnet@v3
+      with:
+        maven: 3.3-jdk-8
+    - name: Run tests
+      run: mvn verify
